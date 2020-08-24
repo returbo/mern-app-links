@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "64returbo64",
+  "mongoUri": "mongodb+srv://returbo:idsoftwareTurbo6@cluster0.as3xg.gcp.mongodb.net/test?retryWrites=true&w=majority"
+}
