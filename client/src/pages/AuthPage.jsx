@@ -12,7 +12,7 @@ const AuthPage = () => {
   const { loading, request, error, clearError } = useHttp();
 
   const [form, setForm] = React.useState({
-    email: "", 
+    email: "",
     password: ""
   });
 
@@ -26,26 +26,26 @@ const AuthPage = () => {
   }, [])
 
   const changeHandler = event => {
-    setForm({ 
-      ...form,  
+    setForm({
+      ...form,
       [event.target.name]: event.target.value
     })
   }
 
   const registerHandler = async () => {
     try {
-      const data = await request('/api/auth/register', 'POST', {...form});
+      const data = await request('/api/auth/register', 'POST', { ...form });
       message(data.message);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   const loginHandler = async () => {
     try {
-      const data = await request('/api/auth/login', 'POST', {...form});
+      const data = await request('/api/auth/login', 'POST', { ...form });
       auth.login(data.token, data.userId);
-    } catch (e) {}
+    } catch (e) { }
   }
- 
+
   return (
     <div className="row">
       <div className="col s6 offset-s3">
@@ -61,6 +61,7 @@ const AuthPage = () => {
                   type="text"
                   name="email"
                   className="yellow-input"
+                  value={form.email}
                   onChange={changeHandler}
                 />
                 <label htmlFor="email">Email</label>
@@ -72,6 +73,7 @@ const AuthPage = () => {
                   type="password"
                   name="password"
                   className="yellow-input"
+                  value={form.password}
                   onChange={changeHandler}
                 />
                 <label htmlFor="password">Пароль</label>
